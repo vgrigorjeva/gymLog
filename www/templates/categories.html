@@ -1,0 +1,19 @@
+<ion-view view-title="Categories">
+  <ion-content>
+    <div class="list list-inset">
+      <label class="item item-input">
+    <input type="text"  ng-model="category" placeholder="ex. legs">
+  </label>
+
+      <button class="button button-block button-positive" ng-click="addCategory(category)">Add</button>
+
+    </div>
+
+    <div class="list list-inset">
+
+      <div class="item" ng-repeat="category in allCategories">
+        {{category.categoryName}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

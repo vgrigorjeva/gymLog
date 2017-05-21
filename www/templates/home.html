@@ -1,0 +1,43 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <h4>Start your workout</h4>
+    <div class="list list-inset ">
+      <label class="item item-input item-select">
+    <div class="input-label">
+      Category
+    </div>
+    <select ng-model="categoryType" ng-change="showExercisesByCategory(categoryType)">
+      <option></option>
+      <option ng-repeat="category in allCategories" >{{category.categoryName}}</option>
+    </select>
+  </label>
+      <label class="item item-input item-select">
+    <div class="input-label">
+      Exercise
+    </div>
+    <select ng-model="choosenExercise">
+      <option></option>
+      <option ng-repeat="exercise in exercisesByCategory">{{exercise.exerciseName}}</option>
+    </select>
+  </label>
+      <div class="list list-inset">
+        <label class="item item-input">
+      <input ng-model="weight" type="number" step="2.5" min="0"> kg
+  </label>
+        <label class="item item-input">
+      <input ng-model="reps" type="number" step="1" min="1"> reps
+  </label>
+      </div>
+      <button class="button button-block button-positive" ng-click="addWorkout(choosenExercise, categoryType, weight, reps)">Add</button>
+    </div>
+    <div class="list list-inset">
+
+      <div class="item" ng-repeat="workout in allWorkouts">
+        <div>{{workout.exerciseName}}</div>
+        <div>{{workout.date}}</div>
+        <div>{{workout.weight}} kg x {{workout.reps}} times</div>
+       
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

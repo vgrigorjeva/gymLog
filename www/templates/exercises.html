@@ -1,0 +1,35 @@
+<ion-view view-title="Exercises">
+  <ion-content>
+    <div class="list list-inset ">
+      <label class="item item-input">
+    <input type="text" ng-model="exerciseName" placeholder="Exercise name (ex. Legs)">
+  </label>
+      <label class="item item-input item-select">
+    <div class="input-label">
+      Category
+    </div>
+    <select ng-model="categoryType">
+      <option></option>
+      <option ng-repeat="category in allCategories">{{category.categoryName}}</option>
+    </select>
+  </label>
+   <label class="item item-input item-select">
+    <div class="input-label">
+      Measurement
+    </div>
+    <select ng-model="measurements">
+      <option>Weight and reps</option>
+    </select>
+  </label>
+  
+      <button class="button button-block button-positive" ng-click="addExercise(exerciseName, categoryType, measurements)">Add</button>
+    </div>
+ <div class="list list-inset">
+
+      <div class="item" ng-repeat="exercise in allExercises">
+        {{exercise.exerciseName}}
+        <div>{{exercise.categoryType}}</div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
